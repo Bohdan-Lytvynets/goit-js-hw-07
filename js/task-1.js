@@ -1,14 +1,8 @@
-const listWithId = document.querySelectorAll(".item");
-
-console.log("Number of categories: "+listWithId.length);
-
-  function findLi (element){
-    const listLi = element.querySelectorAll("li"); 
-    element.querySelector("h2") 
-    console.log("Category: "+listTitle.textContent);
-    console.log("Elements: "+listLi.length);
-}
-
-listWithId.forEach((element) => findLi(element));
-
-
+const menuListItems = document.querySelectorAll('.item');
+console.log(`Number of categories: ${menuListItems.length}`);
+menuListItems.forEach((category) => {
+    const mainItem = category.querySelector('h2');
+    console.log(`Category: ${mainItem.textContent}`);
+    const categoryItem = category.querySelector('ul');
+    console.log(`Elements: ${categoryItem.children.length}`);
+})
