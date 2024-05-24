@@ -25,22 +25,16 @@ const images = [
   }
 ];
 
-const list = document.querySelector(".gallery");
 
-function myImages(myImage) {
-  return `<li class="img-item">
-  <img class="js-img-item-img" src=${myImage.url} alt="${myImage.alt}"/>
-</li>`;
-}
 
-function imgTemplate(arr) {
-  return arr.map(myImages).join('');
-}
+const gallery = document.querySelector('.gallery');
 
-const markup = imgTemplate(images.slice(0, 3));
-
-list.innerHTML = markup;
-
-const imgMy = document.querySelectorAll("js-img-item-img");
-imgMy.style.width = `360px`;
-
+const galleryItems = images.map(image=> {
+  const li = document.createElement('li');
+  const img = document.createElement('img');
+  img.src = image.url;
+  img.alt = image.alt;
+  li.appendChild(img);
+  return li;
+});
+gallery.append(...galleryItems);
